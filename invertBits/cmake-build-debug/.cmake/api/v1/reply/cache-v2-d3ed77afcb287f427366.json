@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/black567/_code/invertBits/cmake-build-debug"
+			"value" : "/home/tudor/_code/performance_analysis/invertBits/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -115,7 +115,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/snap/clion/326/bin/cmake/linux/x64/bin/cmake"
+			"value" : "/home/tudor/_tools/CLion-2024.3.4/clion-2024.3.4/bin/cmake/linux/x64/bin/cmake"
 		},
 		{
 			"name" : "CMAKE_CPACK_COMMAND",
@@ -127,7 +127,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/snap/clion/326/bin/cmake/linux/x64/bin/cpack"
+			"value" : "/home/tudor/_tools/CLion-2024.3.4/clion-2024.3.4/bin/cmake/linux/x64/bin/cpack"
 		},
 		{
 			"name" : "CMAKE_CTEST_COMMAND",
@@ -139,7 +139,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/snap/clion/326/bin/cmake/linux/x64/bin/ctest"
+			"value" : "/home/tudor/_tools/CLion-2024.3.4/clion-2024.3.4/bin/cmake/linux/x64/bin/ctest"
 		},
 		{
 			"name" : "CMAKE_CXX_COMPILER",
@@ -219,7 +219,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : ""
+			"value" : "-g"
 		},
 		{
 			"name" : "CMAKE_CXX_FLAGS_MINSIZEREL",
@@ -235,7 +235,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : ""
+			"value" : "-Os -DNDEBUG"
 		},
 		{
 			"name" : "CMAKE_CXX_FLAGS_RELEASE",
@@ -251,7 +251,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : ""
+			"value" : "-O3 -DNDEBUG"
 		},
 		{
 			"name" : "CMAKE_CXX_FLAGS_RELWITHDEBINFO",
@@ -267,7 +267,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : ""
+			"value" : "-O2 -g -DNDEBUG"
 		},
 		{
 			"name" : "CMAKE_C_COMPILER",
@@ -347,7 +347,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : ""
+			"value" : "-g"
 		},
 		{
 			"name" : "CMAKE_C_FLAGS_MINSIZEREL",
@@ -363,7 +363,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : ""
+			"value" : "-Os -DNDEBUG"
 		},
 		{
 			"name" : "CMAKE_C_FLAGS_RELEASE",
@@ -379,7 +379,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : ""
+			"value" : "-O3 -DNDEBUG"
 		},
 		{
 			"name" : "CMAKE_C_FLAGS_RELWITHDEBINFO",
@@ -395,7 +395,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : ""
+			"value" : "-O2 -g -DNDEBUG"
 		},
 		{
 			"name" : "CMAKE_DLLTOOL",
@@ -423,7 +423,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "Unknown"
+			"value" : "ELF"
 		},
 		{
 			"name" : "CMAKE_EXE_LINKER_FLAGS",
@@ -543,7 +543,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/black567/_code/invertBits/cmake-build-debug/CMakeFiles/pkgRedirects"
+			"value" : "/home/tudor/_code/performance_analysis/invertBits/cmake-build-debug/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -555,7 +555,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "Ninja"
+			"value" : "Unix Makefiles"
 		},
 		{
 			"name" : "CMAKE_GENERATOR_INSTANCE",
@@ -603,7 +603,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/black567/_code/invertBits"
+			"value" : "/home/tudor/_code/performance_analysis/invertBits"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -650,12 +650,16 @@
 			"properties" : 
 			[
 				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
 					"name" : "HELPSTRING",
-					"value" : "No help, variable specified on the command line."
+					"value" : "Path to a program."
 				}
 			],
-			"type" : "UNINITIALIZED",
-			"value" : "/snap/clion/326/bin/ninja/linux/x64/ninja"
+			"type" : "FILEPATH",
+			"value" : "/usr/bin/gmake"
 		},
 		{
 			"name" : "CMAKE_MODULE_LINKER_FLAGS",
@@ -887,7 +891,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/snap/clion/326/bin/cmake/linux/x64/share/cmake-3.30"
+			"value" : "/home/tudor/_tools/CLion-2024.3.4/clion-2024.3.4/bin/cmake/linux/x64/share/cmake-3.30"
 		},
 		{
 			"name" : "CMAKE_SHARED_LINKER_FLAGS",
@@ -1163,7 +1167,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/black567/_code/invertBits/cmake-build-debug"
+			"value" : "/home/tudor/_code/performance_analysis/invertBits/cmake-build-debug"
 		},
 		{
 			"name" : "invertBits_IS_TOP_LEVEL",
@@ -1187,7 +1191,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/black567/_code/invertBits"
+			"value" : "/home/tudor/_code/performance_analysis/invertBits"
 		}
 	],
 	"kind" : "cache",

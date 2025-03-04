@@ -1,4 +1,4 @@
-# Install script for directory: /home/black567/_code/invertBits
+# Install script for directory: /home/tudor/_code/performance_analysis/invertBits
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -57,6 +57,6 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-  file(WRITE "/home/black567/_code/invertBits/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+  file(WRITE "/home/tudor/_code/performance_analysis/invertBits/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()

@@ -7,8 +7,8 @@ using namespace std::chrono;
 
 #define ONE_MILLION (100000000)
 
-// Done in 4892 ms
-// Ryzen 7 4800H @ 2.9 Ghz
+// Done in 3801 ms
+// i7 12800H @ 2.4 Ghz
 
 void naiveInvertBits(uint32_t* pData, uint32_t dataSize) {
     for (uint32_t i = 0; i < dataSize; i++) {
@@ -20,7 +20,7 @@ void naiveInvertBits(uint32_t* pData, uint32_t dataSize) {
             uint32_t evenBit = (uint32_t)((number & (1 << j)) >> j << (31 - j/2));
             invertedBits |= evenBit;
 
-            uint32_t oddBit = (uint32_t)((number & (1 << (j+1))) >> (j+1) << (15 - j/2));
+            uint32_t oddBit = (uint32_t)((number & (1 << (j))) >> (j) << (15 - j/2));
             invertedBits |= oddBit;
         }
         *(pData + i) = invertedBits;

@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "invertBits::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-invertBits-Debug-c145f595d815362fa903.json",
+					"jsonFile" : "target-invertBits-Debug-5a38efba1ec5c609f4d9.json",
 					"name" : "invertBits",
 					"projectIndex" : 0
 				}
@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/black567/_code/invertBits/cmake-build-debug",
-		"source" : "/home/black567/_code/invertBits"
+		"build" : "/home/tudor/_code/performance_analysis/invertBits/cmake-build-debug",
+		"source" : "/home/tudor/_code/performance_analysis/invertBits"
 	},
 	"version" : 
 	{
