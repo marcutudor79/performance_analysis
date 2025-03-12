@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = 
 
-CXX_FLAGS = -g -fdiagnostics-color=always
+CXX_FLAGS = -fopenmp -g -fdiagnostics-color=always
 

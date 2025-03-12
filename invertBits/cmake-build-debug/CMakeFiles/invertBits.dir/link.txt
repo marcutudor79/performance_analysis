@@ -1,1 +1,1 @@
-/usr/bin/c++ -g CMakeFiles/invertBits.dir/main.cpp.o -o invertBits
+/usr/bin/c++ -fopenmp -g CMakeFiles/invertBits.dir/main.cpp.o -o invertBits  -lgomp

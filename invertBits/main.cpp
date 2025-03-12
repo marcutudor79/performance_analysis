@@ -2,17 +2,21 @@
 #include <chrono> // used for time measurement
 #include <cstdlib>
 #include <bitset>
+#include <omp.h>
 
 using namespace std::chrono;
 
 #define ONE_MILLION (100000000)
 
+// Done in 530 ms naive with OpenMP 12 Threads
+// Done in 34 ms LUT 8 bit with OpenMP 12 Threads
 // Done in 227 ms LUT 8 bit
 // Done in 149 ms LUT 16 bit
-// Done in
-// i7 12800H @ 2.4 Ghz
+// i7 12800H @ 2.4 Ghz (20 Threads)
 
 void naiveInvertBits(uint32_t* pData, uint32_t dataSize) {
+
+    #pragma omp parallel for
     for (uint32_t i = 0; i < dataSize; i++) {
         uint32_t invertedBits = 0ULL;
         uint32_t number   = *(pData + i);
@@ -207,6 +211,8 @@ void computeLut16Bit() {
 }
 
 void lut8BitInvertBits(uint32_t* pData, uint32_t dataSize) {
+
+    #pragma omp parallel for
     for (uint32_t i = 0; i < dataSize; i++) {
         pData[i] = (lut8Bit[0][pData[i] & 0xFF] | lut8Bit[1][(pData[i]>>8) & 0xFF] | lut8Bit[2][(pData[i]>>16) & 0xFF] | lut8Bit[3][pData[i]>>24]);
     }
@@ -240,8 +246,8 @@ int main() {
     //naiveInvertBits(pData, ONE_MILLION);
     //optimizedInvertBits(pData, ONE_MILLION);
 
-    // lut8BitInvertBits(pData, ONE_MILLION);
-    lut16BitInvertBits(pData, ONE_MILLION);
+    lut8BitInvertBits(pData, ONE_MILLION);
+    // lut16BitInvertBits(pData, ONE_MILLION);
 
     auto stop = std::chrono::high_resolution_clock::now();
     

@@ -224,6 +224,9 @@ invertBits_IS_TOP_LEVEL:STATIC=ON
 //Value Computed by CMake
 invertBits_SOURCE_DIR:STATIC=/home/tudor/_code/performance_analysis/invertBits
 
+//The directory containing a CMake configuration file for threads.
+threads_DIR:PATH=threads_DIR-NOTFOUND
+
 
 ########################
 # INTERNAL cache entries
