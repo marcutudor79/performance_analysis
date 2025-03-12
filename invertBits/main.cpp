@@ -3,11 +3,14 @@
 #include <cstdlib>
 #include <bitset>
 #include <omp.h>
+#include <thread>
 
 using namespace std::chrono;
 
 #define ONE_MILLION (100000000)
 
+// Done in 588 ms naive with interleaved std::thread 12 Threads
+// Done in 616 ms naive with chunked std::thread 12 Threads
 // Done in 530 ms naive with OpenMP 12 Threads
 // Done in 34 ms LUT 8 bit with OpenMP 12 Threads
 // Done in 227 ms LUT 8 bit
@@ -224,6 +227,69 @@ void lut16BitInvertBits(uint32_t* pData, uint32_t dataSize) {
     }
 }
 
+void naiveInvertBitsStartStop(uint32_t* pData, uint32_t start, uint32_t stop) {
+
+    for (uint32_t i = start; i < stop; i++) {
+        uint32_t invertedBits = 0ULL;
+        uint32_t number   = *(pData + i);
+        for (uint32_t j = 0; j < 32; j += 2) {
+            // b31 b30 b29 ... b2 b1 b0
+            // b0 b2 b4 ... b30 b1 b3 ... b31
+            uint32_t evenBit = (uint32_t)((number & (1 << j)) >> j << (31 - j/2));
+            invertedBits |= evenBit;
+
+            uint32_t oddBit = (uint32_t)((number & (1 << (j + 1))) >> (j+1) << (15 - j/2));
+            invertedBits |= oddBit;
+        }
+        *(pData + i) = invertedBits;
+    }
+}
+
+void threadedChunkedNaiveInvertBits(uint32_t* pData, uint32_t dataSize) {
+    std::thread threads[12];
+    uint32_t chunkSize = dataSize / 12;
+
+    for (int i = 0; i < 12; ++i) {
+        uint32_t start = i * chunkSize;
+        uint32_t end = (i == 12 - 1) ? dataSize : start + chunkSize; // Handle last chunk
+        threads[i] = std::thread(naiveInvertBitsStartStop, pData, start, end);
+    }
+
+    for(int i = 0; i < 12; ++i) {
+        threads[i].join();
+    }
+}
+
+void naiveInvertBitsInterleaved(uint32_t* pData, uint32_t dataSize, uint32_t threadId) {
+
+    for (uint32_t i = threadId; i < dataSize; i+=12) {
+        uint32_t invertedBits = 0ULL;
+        uint32_t number   = *(pData + i);
+        for (uint32_t j = 0; j < 32; j += 2) {
+            // b31 b30 b29 ... b2 b1 b0
+            // b0 b2 b4 ... b30 b1 b3 ... b31
+            uint32_t evenBit = (uint32_t)((number & (1 << j)) >> j << (31 - j/2));
+            invertedBits |= evenBit;
+
+            uint32_t oddBit = (uint32_t)((number & (1 << (j + 1))) >> (j+1) << (15 - j/2));
+            invertedBits |= oddBit;
+        }
+        *(pData + i) = invertedBits;
+    }
+}
+
+void threadedInterleavedNaiveInvertBits(uint32_t* pData, uint32_t dataSize) {
+    std::thread threads[12];
+
+    for (int i = 0; i < 12; ++i) {
+        threads[i] = std::thread(naiveInvertBitsInterleaved, pData, dataSize, i);
+    }
+
+    for(int i = 0; i < 12; ++i) {
+        threads[i].join();
+    }
+}
+
 int main() {
 
     // data setup
@@ -246,8 +312,11 @@ int main() {
     //naiveInvertBits(pData, ONE_MILLION);
     //optimizedInvertBits(pData, ONE_MILLION);
 
-    lut8BitInvertBits(pData, ONE_MILLION);
+    // lut8BitInvertBits(pData, ONE_MILLION);
     // lut16BitInvertBits(pData, ONE_MILLION);
+    // threadedChunkedNaiveInvertBits(pData, ONE_MILLION);
+    // threadedInterleavedNaiveInvertBits(pData, ONE_MILLION);
+    threadedInterleavedNaiveInvertBits(pData, ONE_MILLION);
 
     auto stop = std::chrono::high_resolution_clock::now();
     
